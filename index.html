@@ -3,117 +3,134 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nasta Box + POST - Mockup</title>
-<link rel="apple-touch-icon" href="icon2.jpg">
-<link rel="apple-touch-icon" sizes="57x57" href="icon2.jpg">
-<link rel="apple-touch-icon" sizes="72x72" href="icon2.jpg">
-<link rel="apple-touch-icon" sizes="76x76" href="icon2.jpg">
-<link rel="apple-touch-icon" sizes="114x114" href="icon2.jpg">
-<link rel="apple-touch-icon" sizes="120x120" href="icon2.jpg">
-<link rel="apple-touch-icon" sizes="144x144" href="icon2.jpg">
-<link rel="apple-touch-icon" sizes="152x152" href="icon2.jpg">
-<link rel="apple-touch-icon" sizes="180x180" href="icon2.jpg">
-<link rel="icon" type="image/png" sizes="192x192" href="icon2.jpg">
+<title>Nasta 佐野一貴</title>
+<link rel="apple-touch-icon" href="images/icon2.jpg">
+<link rel="apple-touch-icon" sizes="57x57" href="images/icon2.jpg">
+<link rel="apple-touch-icon" sizes="72x72" href="images/icon2.jpg">
+<link rel="apple-touch-icon" sizes="76x76" href="images/icon2.jpg">
+<link rel="apple-touch-icon" sizes="114x114" href="images/icon2.jpg">
+<link rel="apple-touch-icon" sizes="120x120" href="images/icon2.jpg">
+<link rel="apple-touch-icon" sizes="144x144" href="images/icon2.jpg">
+<link rel="apple-touch-icon" sizes="152x152" href="images/icon2.jpg">
+<link rel="apple-touch-icon" sizes="180x180" href="images/icon2.jpg">
+<link rel="icon" type="image/png" sizes="192x192" href="images/icon2.jpg">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="Nasta佐野">
 <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif; background-color: #fff; color: #333; line-height: 1.5; }
-    .container { max-width: 1000px; margin: 0 auto; background-color: #fff; }
-    a.img-placeholder { display: block; border: none; text-decoration: none; overflow: hidden; background-color: #fff; }
-    a.img-placeholder img { width: 100%; height: 100%; object-fit: cover; display: block; transition: opacity 0.3s ease; }
-    a.img-placeholder:hover img { opacity: 0.7; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif; background-color: #fff; color: #333; line-height: 1.5; }
+.container { max-width: 480px; margin: 0 auto; background-color: #fff; }
 
-    /* ナビゲーション */
-    .top-nav { background-color: #dcdcdc; padding: 8px 15px; display: flex; flex-wrap: wrap; gap: 6px; }
-    .top-nav button { background-color: #fff; border: 1px solid #333; padding: 4px 10px; font-size: 11px; font-weight: bold; cursor: pointer; }
+/* ナビゲーション */
+.top-nav { background-color: #e8e8e8; padding: 8px 10px; display: flex; flex-wrap: wrap; gap: 5px; }
+.top-nav button { background-color: #fff; border: 1px solid #999; padding: 4px 10px; font-size: 11px; cursor: pointer; border-radius: 3px; }
 
-    /* ヒーロー */
-    .hero { display: flex; flex-wrap: wrap; }
-    .hero-left { flex: 1; min-width: 280px; background-color: #2b2b2b; color: #fff; padding: 20px 15px; display: flex; justify-content: space-between; align-items: center; }
-    .hero-left-info { display: flex; flex-direction: column; gap: 10px; }
-    .catch-copy { font-size: 10px; color: #ddd; line-height: 1.4; text-align: center; }
-    .brand-logo { text-align: center; }
-    .brand-logo .logo-main { font-size: 22px; font-weight: bold; letter-spacing: 1px; }
-    .brand-logo .logo-sub { font-size: 16px; font-weight: bold; }
-    .hero-left-buttons { display: flex; flex-direction: column; align-items: center; gap: 6px; }
-    .hero-btn { background: transparent; border: 1px solid #fff; color: #fff; padding: 5px 10px; font-size: 11px; cursor: pointer; }
-    .hero-left .img-placeholder { width: 110px; height: 150px; margin-left: 15px; flex-shrink: 0; }
-    .hero-right { flex: 1; min-width: 280px; background-color: #b8b8b8; padding: 15px 20px; position: relative; display: flex; flex-direction: column; }
-    .right-logo-title { font-size: 18px; font-weight: bold; color: #333; margin-bottom: 10px; }
-    .hero-right-content { display: flex; justify-content: space-between; align-items: stretch; gap: 15px; flex: 1; }
-    .hero-right .img-placeholder { flex: 1; min-height: 120px; }
-    .hero-right-buttons { display: flex; flex-direction: column; justify-content: center; gap: 8px; flex-shrink: 0; }
-    .bubble { position: absolute; top: 8px; right: 15px; border: 3px solid #e60012; border-radius: 40px; padding: 5px 10px; background-color: #fff; color: #e60012; font-weight: bold; font-size: 12px; z-index: 10; box-shadow: 2px 2px 5px rgba(0,0,0,0.1); }
-    .bubble::before { content: ""; position: absolute; bottom: -15px; left: 30px; border-width: 15px 10px 0 10px; border-style: solid; border-color: #e60012 transparent transparent transparent; transform: rotate(-15deg); }
-    .bubble::after { content: ""; position: absolute; bottom: -10px; left: 31px; border-width: 12px 8px 0 8px; border-style: solid; border-color: #fff transparent transparent transparent; transform: rotate(-15deg); }
+/* インターホンセクション */
+.hero-interphone { background-color: #2b2b2b; color: #fff; padding: 15px; display: flex; justify-content: space-between; align-items: center; }
+.hero-interphone-info { display: flex; flex-direction: column; gap: 8px; }
+.catch-copy { font-size: 9px; color: #ccc; line-height: 1.5; text-align: center; }
+.brand-logo-main { font-size: 22px; font-weight: bold; text-align: center; }
+.brand-logo-sub { font-size: 16px; font-weight: bold; text-align: center; }
+.hero-btns { display: flex; gap: 8px; margin-top: 4px; }
+.hero-btn { background: transparent; border: 1px solid #fff; color: #fff; padding: 5px 14px; font-size: 11px; cursor: pointer; border-radius: 3px; }
+.interphone-img { width: 100px; height: 140px; object-fit: cover; flex-shrink: 0; }
 
-    /* 依頼ボタン */
-    .request-section { background-color: #111; padding: 15px; }
-    .request-title-wrapper { margin-bottom: 12px; }
-    .request-title { display: inline-block; background-color: #555; color: #fff; padding: 5px 25px; border-radius: 20px; border: 2px solid #999; font-size: 16px; font-weight: bold; letter-spacing: 1px; }
-    .request-buttons { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; }
-    .request-buttons button { flex: 1; min-width: 100px; color: #fff; border: 2px solid #fff; border-radius: 8px; padding: 14px 5px; font-size: 16px; font-weight: bold; cursor: pointer; }
-    .btn-color-1 { background-color: #3b4b66; } .btn-color-2 { background-color: #446e53; } .btn-color-3 { background-color: #3b4b66; } .btn-color-4 { background-color: #c4693a; } .btn-color-5 { background-color: #2b7d3b; }
+/* Nasta Box + POSTセクション */
+.hero-nastabox { background-color: #c0c0c0; padding: 15px; display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+.hero-nastabox-info { display: flex; flex-direction: column; gap: 8px; flex-shrink: 0; }
+.nastabox-title { font-size: 16px; font-weight: bold; color: #222; }
+.nastabox-catch { font-size: 9px; color: #444; }
+.nastabox-btns { display: flex; gap: 8px; }
+.nastabox-btn { background: transparent; border: 1px solid #333; color: #333; padding: 5px 12px; font-size: 11px; cursor: pointer; border-radius: 3px; }
+.nastabox-img { flex: 1; max-width: 200px; height: 130px; object-fit: contain; }
 
-    /* 担当者情報 */
-    .contact-section { background-color: #eee; padding: 15px 20px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 15px; }
-    .contact-info { font-size: 15px; line-height: 1.8; }
-    .contact-info-name { font-size: 17px; margin-bottom: 5px; }
-    .contact-info .icon-mail { font-size: 16px; vertical-align: middle; margin-right: 5px; }
-    .contact-section .img-placeholder { width: 130px; height: 170px; flex-shrink: 0; border: 2px solid #000; }
-    .catalog-text-box { background-color: #fff; border: 1px solid #aaa; padding: 15px; font-size: 12px; min-width: 200px; flex: 1; }
-    .catalog-text-box p { margin-bottom: 8px; }
-    .catalog-text-box p.note { font-size: 10px; margin-top: 15px; margin-bottom: 0; }
+/* 物干しセクション */
+.hoshiboshi-section { background-color: #1a1a1a; position: relative; width: 100%; }
+.hoshiboshi-img { width: 100%; height: auto; display: block; object-fit: contain; }
+.hoshiboshi-label { position: absolute; top: 10px; left: 10px; display: flex; align-items: center; gap: 6px; z-index: 2; }
+.hoshiboshi-label-text { font-size: 11px; color: #ccc; }
+.hoshiboshi-label-tag { background-color: #444; color: #ccc; border: 1px solid #666; padding: 2px 8px; font-size: 10px; border-radius: 2px; }
+/* ②NEWバッジを左上に */
+.hoshiboshi-badge { position: absolute; top: 8px; right: 10px; background-color: #2a2a2a; border: 1.5px solid #888; border-radius: 50%; width: 48px; height: 48px; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 2; overflow: hidden; }
+.hoshiboshi-badge-new { font-size: 9px; color: #fff; font-style: italic; font-weight: bold; }
+.hoshiboshi-badge-black { font-size: 9px; color: #fff; font-weight: bold; }
+.hoshiboshi-badge-sub { font-size: 7px; color: #aaa; }
+.hoshiboshi-text { position: relative; z-index: 2; text-align: right; }
+.hoshiboshi-text p { font-size: 10px; color: #ddd; line-height: 1.6; }
 
-    /* カタログ */
-    .catalog-section { padding: 20px 0 40px 0; }
-    .catalog-header { background-color: #000; color: #fff; display: inline-block; padding: 8px 40px; font-size: 16px; font-weight: bold; margin-bottom: 20px; }
-    .catalog-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px 30px; padding: 0 30px; }
-    .catalog-grid .img-placeholder { aspect-ratio: 1 / 1.4; }
+/* 依頼ボタンセクション */
+.request-section { background-color: #111; padding: 12px; }
+.request-title-wrapper { margin-bottom: 10px; }
+.request-title { display: inline-block; background-color: #444; color: #fff; padding: 5px 20px; border-radius: 20px; border: 1px solid #888; font-size: 13px; font-weight: bold; }
 
-    /* フッター画像 */
-    .footer-images-section { background-color: #000; padding: 20px; display: flex; flex-direction: column; align-items: center; }
-    .footer-row { display: flex; justify-content: center; width: 100%; }
-    .footer-row .img-placeholder { height: 90px; }
-    .footer-row-top { width: 60%; }
-    .footer-row-top .img-placeholder { flex: 1; }
-    .footer-row-bottom { width: 100%; }
-    .footer-row-bottom .img-placeholder { flex: 1; }
-    .footer-row .img-placeholder img { object-fit: contain; object-position: center; }
+/* ③白枠あり ④余白を詰める ⑤アイコン左・テキスト右の横並び */
+.request-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.req-btn {
+    border: 2px solid #fff; /* ③白枠 */
+    border-radius: 10px;
+    padding: 12px 10px; /* ④余白を詰める */
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row; /* ⑤横並び */
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+    text-align: left;
+    line-height: 1.3;
+}
+.req-btn-content { display: flex; flex-direction: column; }
+.btn-icon { font-size: 20px; flex-shrink: 0; }
+.btn-sub { font-size: 9px; font-weight: normal; opacity: 0.9; }
+.btn-main { font-size: 14px; font-weight: bold; }
+.btn-navy { background-color: #3b4b66; }
+.btn-green { background-color: #3a7a4a; }
+.btn-orange { background-color: #c4693a; }
+.btn-darkgreen { background-color: #2b6b3a; }
 
-    /* スマホ対応 */
-    @media (max-width: 600px) {
-        .hero { flex-direction: column; }
-        .hero-left { min-width: unset; width: 100%; padding: 12px 15px; }
-        .hero-right { min-width: unset; width: 100%; padding: 12px 15px; }
-        .hero-left .img-placeholder { width: 75px; height: 100px; }
-        .hero-left-info { gap: 8px; }
-        .brand-logo .logo-main { font-size: 18px; }
-        .brand-logo .logo-sub { font-size: 14px; }
-        .catch-copy { font-size: 9px; }
-        .right-logo-title { font-size: 15px; margin-bottom: 8px; }
-        .hero-right .img-placeholder { min-height: 90px; }
-        .bubble { font-size: 10px; padding: 4px 8px; top: 5px; right: 8px; }
-        .request-section { padding: 12px; }
-        .request-buttons { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
-        .request-buttons button { min-width: unset; width: 100%; font-size: 18px; padding: 18px 5px; border-radius: 10px; }
-        .request-buttons button:last-child { grid-column: 1 / -1; }
-        .request-title { font-size: 14px; padding: 4px 15px; }
-        .catalog-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; padding: 0 12px; }
-        .contact-section { flex-direction: column; align-items: flex-start; }
-        .footer-row-top { width: 100%; }
-        .footer-row .img-placeholder { height: 65px; }
-        .top-nav { padding: 6px 10px; gap: 5px; }
-        .top-nav button { font-size: 10px; padding: 4px 8px; }
-    }
+/* 担当者情報 */
+.contact-section { background-color: #f0f0f0; padding: 15px; display: flex; align-items: flex-start; gap: 12px; }
+.contact-info { font-size: 14px; line-height: 1.9; flex: 1; white-space: nowrap; /* ⑥改行しない */ }
+.contact-info-name { font-size: 15px; font-weight: bold; margin-bottom: 3px; white-space: nowrap; }
+.catalog-img-wrap { width: 75px; height: 105px; border: 1px solid #999; overflow: hidden; flex-shrink: 0; }
+.catalog-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
+.catalog-text-box { background-color: #fff; border: 1px solid #bbb; padding: 10px; font-size: 11px; flex: 1; }
+.catalog-text-box p { margin-bottom: 5px; }
+.catalog-text-box p.note { font-size: 9px; margin-top: 8px; color: #666; }
+
+/* カタログ */
+.catalog-section { padding: 15px 0 30px 0; }
+.catalog-header { background-color: #000; color: #fff; display: inline-block; padding: 7px 30px; font-size: 14px; font-weight: bold; margin-bottom: 15px; }
+.catalog-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; padding: 0 12px; }
+.catalog-grid a { display: block; text-decoration: none; overflow: hidden; }
+.catalog-grid img { width: 100%; aspect-ratio: 1 / 1.4; object-fit: cover; display: block; }
+
+/* フッター */
+.footer-images-section { background-color: #000; padding: 15px; }
+.footer-row { display: flex; width: 100%; }
+.footer-row a { flex: 1; display: block; overflow: hidden; }
+.footer-row img { width: 100%; height: 65px; object-fit: contain; display: block; }
+
+/* PC */
+@media (min-width: 481px) {
+    .container { max-width: 1000px; }
+    .hero-wrap { display: flex; }
+    .hero-interphone { flex: 1; }
+    .hero-nastabox { flex: 1; }
+    .catalog-grid { grid-template-columns: repeat(4, 1fr); }
+    .request-grid { grid-template-columns: repeat(3, 1fr); }
+    .contact-section { gap: 20px; }
+    .contact-info { white-space: normal; }
+}
 </style>
 </head>
 <body>
-
 <div class="container">
 
+    <!-- ナビゲーション -->
     <div class="top-nav">
         <button>宅配ボックス</button>
         <button>集合ポスト</button>
@@ -123,95 +140,210 @@
         <button>その他</button>
     </div>
 
-    <div class="hero">
-        <div class="hero-left">
-            <div class="hero-left-info">
+    <div class="hero-wrap">
+        <!-- インターホン -->
+        <div class="hero-interphone">
+            <div class="hero-interphone-info">
                 <div class="catch-copy">「すべての人に あたらしい きもちよさ」<br>インターホンから</div>
-                <div class="brand-logo">
-                    <div class="logo-main">Nasta</div>
-                    <div class="logo-sub">Interphone 2</div>
-                </div>
-                <div class="hero-left-buttons">
-                    <button class="hero-btn">見積を依頼</button>
+                <div class="brand-logo-main">Nasta</div>
+                <div class="brand-logo-sub">Interphone 2</div>
+                <div class="hero-btns">
+                    <button class="hero-btn" onclick="sendMail('見積依頼')">見積依頼</button>
                     <button class="hero-btn">カタログ</button>
                 </div>
             </div>
-            <a href="https://www.nasta.co.jp/product/electrical/interphone-home2/" class="img-placeholder" target="_blank">
-                <img src="imageA.jpg" alt="画像A">
+            <a href="https://www.nasta.co.jp/product/electrical/interphone-home2/" target="_blank">
+                <img src="images/imageA.jpg" alt="インターホン" class="interphone-img">
             </a>
         </div>
 
-        <div class="hero-right">
-            <div class="bubble">レンガ設置追加！！</div>
-            <div class="right-logo-title">Nasta Box + POST</div>
-            <div class="hero-right-content">
-                <a href="https://www.nasta.co.jp/product/delivery-box/detached-house-brand/index.html" class="img-placeholder" target="_blank">
-                    <img src="imageB.jpg" alt="画像B">
-                </a>
-                <div class="hero-right-buttons">
-                    <button class="hero-btn" style="color:#333; border-color:#333;">見積を依頼</button>
+        <!-- Nasta Box + POST -->
+        <div class="hero-nastabox">
+            <div class="hero-nastabox-info">
+                <div class="nastabox-title">Nasta Box + POST</div>
+                <div class="nastabox-catch">「再配達ゼロ」をめざして。</div>
+                <div class="nastabox-btns">
+                    <button class="nastabox-btn" onclick="sendMail('見積依頼')">見積依頼</button>
+                    <button class="nastabox-btn">カタログ</button>
                 </div>
             </div>
+            <a href="https://www.nasta.co.jp/product/delivery-box/detached-house-brand/index.html" target="_blank">
+                <img src="images/imageB.jpg" alt="Nasta Box" class="nastabox-img">
+            </a>
         </div>
     </div>
 
+    <!-- 物干しセクション -->
+    <div class="hoshiboshi-section">
+        <img src="images/imageKSDA.jpg" alt="物干し" class="hoshiboshi-img">
+    </div>
+
+    <!-- 依頼ボタン -->
     <div class="request-section">
-        <div class="request-title-wrapper"><div class="request-title">営業担当へ個別依頼</div></div>
-        <div class="request-buttons">
-            <button class="btn-color-1" onclick="sendMail('見積依頼')">見積を依頼</button>
-            <button class="btn-color-2" onclick="sendMail('在庫確認依頼')">在庫確認</button>
-            <button class="btn-color-3" onclick="sendMail('現場調査依頼')">調査依頼</button>
-            <button class="btn-color-4" onclick="sendMail('打合せ依頼')">打合せ依頼</button>
-            <button class="btn-color-5" onclick="sendMail('その他資料依頼')">その他資料依頼</button>
+        <div class="request-title-wrapper">
+            <div class="request-title">営業担当へ個別依頼</div>
+        </div>
+        <div class="request-grid">
+            <!-- ⑤見本通りの配置：アイコン左・テキスト右 -->
+            <button class="req-btn btn-navy" onclick="sendMail('見積依頼')">
+                <span class="btn-icon">📄</span>
+                <div class="req-btn-content">
+                    <span class="btn-main">見積依頼</span>
+                </div>
+            </button>
+            <button class="req-btn btn-green" onclick="showCallDialog()">
+                <span class="btn-icon">✅</span>
+                <div class="req-btn-content">
+                    <span class="btn-main">在庫確認</span>
+                </div>
+            </button>
+            <button class="req-btn btn-navy" onclick="showBADialog()">
+                <span class="btn-icon">📋</span>
+                <div class="req-btn-content">
+                    <span class="btn-sub">Before/After</span>
+                    <span class="btn-main">提案資料依頼</span>
+                </div>
+            </button>
+            <button class="req-btn btn-navy" onclick="showSurveyDialog()">
+                <span class="btn-icon">🔍</span>
+                <div class="req-btn-content">
+                    <span class="btn-sub">宅配BOX・POST</span>
+                    <span class="btn-main">調査依頼</span>
+                </div>
+            </button>
+            <button class="req-btn btn-orange" onclick="sendMail('打合せ依頼')">
+                <span class="btn-icon">📅</span>
+                <div class="req-btn-content">
+                    <span class="btn-main">打合せ依頼</span>
+                </div>
+            </button>
+            <button class="req-btn btn-darkgreen" onclick="sendMail('その他資料依頼')">
+                <span class="btn-icon">📁</span>
+                <div class="req-btn-content">
+                    <span class="btn-sub">その他 資料</span>
+                    <span class="btn-main">カタログ依頼</span>
+                </div>
+            </button>
         </div>
     </div>
 
+    <!-- 担当者情報 ⑥改行しない ⑦メールアドレス追加 -->
     <div class="contact-section">
         <div class="contact-info">
             <div class="contact-info-name">■営業担当：佐野 一貴</div>
             <div>TEL：011-741-2250</div>
-            <div><span class="icon-mail">✉</span>：<span id="emailDisplay"></span></div>
+            <div>✉：k&#45;sano&#64;nasta&#46;co&#46;jp</div>
         </div>
-        <a href="https://www.catalabo.org/iportal/CatalogViewInterfaceStartUpAction.do?method=startUp&mode=PAGE&volumeID=CATALABO&catalogId=82024360000&pageGroupId=&designID=link&catalogCategoryId=&designConfirmFlg=" class="img-placeholder" target="_blank">
-            <img src="imageC.jpg" alt="画像C">
-        </a>
+        <div class="catalog-img-wrap">
+            <a href="https://www.catalabo.org/iportal/CatalogViewInterfaceStartUpAction.do?method=startUp&mode=PAGE&volumeID=CATALABO&catalogId=82024360000&pageGroupId=&designID=link&catalogCategoryId=&designConfirmFlg=" target="_blank">
+                <img src="images/imageC.jpg" alt="総合カタログ">
+            </a>
+        </div>
         <div class="catalog-text-box">
-            <p>総合カタログ vol.8</p><p>2024年10月発行</p><p class="note">※総合カタログ vol.8 正誤表もご確認ください。</p>
+            <p>総合カタログ vol.8</p>
+            <p>2024年10月発行</p>
+            <p class="note">※総合カタログ vol.8 正誤表もご確認ください。</p>
         </div>
     </div>
 
+    <!-- カタログ・チラシ -->
     <div class="catalog-section">
         <div class="catalog-header">カタログ・チラシ</div>
         <div class="catalog-grid">
-            <a href="★ここにリンク先のURLを入れる★" class="img-placeholder" target="_blank"><img src="imageD.jpg" alt="画像D"></a>
-            <a href="https://www.catalabo.org/iportal/CatalogViewInterfaceStartUpAction.do?method=startUp&mode=PAGE&volumeID=CATALABO&catalogId=84030180000&pageGroupId=&designID=link&catalogCategoryId=&designConfirmFlg=" class="img-placeholder" target="_blank"><img src="imageE.jpg" alt="画像E"></a>
-            <a href="★ここにリンク先のURLを入れる★" class="img-placeholder" target="_blank"><img src="imageF.jpg" alt="画像F"></a>
-            <a href="★ここにリンク先のURLを入れる★" class="img-placeholder" target="_blank"><img src="imageG.jpg" alt="画像G"></a>
-            <a href="https://www.catalabo.org/iportal/CatalogViewInterfaceStartUpAction.do?method=startUp&mode=PAGE&volumeID=CATALABO&catalogId=82846980000&pageGroupId=&designID=link&catalogCategoryId=&designConfirmFlg=" class="img-placeholder" target="_blank"><img src="imageH.jpg" alt="画像H"></a>
-            <a href="★ここにリンク先のURLを入れる★" class="img-placeholder" target="_blank"><img src="imageI.jpg" alt="画像I"></a>
-            <a href="★ここにリンク先のURLを入れる★" class="img-placeholder" target="_blank"><img src="imageJ.jpg" alt="画像J"></a>
-            <a href="★ここにリンク先のURLを入れる★" class="img-placeholder" target="_blank"><img src="imageK.jpg" alt="画像K"></a>
+            <a href="★ここにリンク先のURLを入れる★" target="_blank"><img src="images/imageD.jpg" alt="画像D"></a>
+            <a href="https://www.catalabo.org/iportal/CatalogViewInterfaceStartUpAction.do?method=startUp&mode=PAGE&volumeID=CATALABO&catalogId=84030180000&pageGroupId=&designID=link&catalogCategoryId=&designConfirmFlg=" target="_blank"><img src="images/imageE.jpg" alt="画像E"></a>
+            <a href="★ここにリンク先のURLを入れる★" target="_blank"><img src="images/imageF.jpg" alt="画像F"></a>
+            <a href="★ここにリンク先のURLを入れる★" target="_blank"><img src="images/imageG.jpg" alt="画像G"></a>
+            <a href="https://www.catalabo.org/iportal/CatalogViewInterfaceStartUpAction.do?method=startUp&mode=PAGE&volumeID=CATALABO&catalogId=82846980000&pageGroupId=&designID=link&catalogCategoryId=&designConfirmFlg=" target="_blank"><img src="images/imageH.jpg" alt="画像H"></a>
+            <a href="★ここにリンク先のURLを入れる★" target="_blank"><img src="images/imageI.jpg" alt="画像I"></a>
+            <a href="★ここにリンク先のURLを入れる★" target="_blank"><img src="images/imageJ.jpg" alt="画像J"></a>
+            <a href="★ここにリンク先のURLを入れる★" target="_blank"><img src="images/imageK.jpg" alt="画像K"></a>
         </div>
     </div>
 
+    <!-- フッター -->
     <div class="footer-images-section">
-        <div class="footer-row footer-row-top">
-            <a href="https://www.nasta.co.jp/product/post/" class="img-placeholder" target="_blank"><img src="image1.jpg" alt="画像1"></a>
-            <a href="https://www.nasta.co.jp/product/delivery-box/" class="img-placeholder" target="_blank"><img src="image2.jpg" alt="画像2"></a>
-            <a href="https://www.nasta.co.jp/product/electrical/electrical01/" class="img-placeholder" target="_blank"><img src="image3.jpg" alt="画像3"></a>
+        <div class="footer-row">
+            <a href="https://www.nasta.co.jp/product/post/" target="_blank"><img src="images/image1.jpg" alt="画像1"></a>
+            <a href="https://www.nasta.co.jp/product/delivery-box/" target="_blank"><img src="images/image2.jpg" alt="画像2"></a>
+            <a href="https://www.nasta.co.jp/product/electrical/electrical01/" target="_blank"><img src="images/image3.jpg" alt="画像3"></a>
         </div>
-        <div class="footer-row footer-row-bottom">
-            <a href="https://www.nasta.co.jp/product/utility/" class="img-placeholder" target="_blank"><img src="image4.jpg" alt="画像4"></a>
-            <a href="https://www.nasta.co.jp/product/sign/" class="img-placeholder" target="_blank"><img src="image5.jpg" alt="画像5"></a>
-            <a href="https://www.nasta.co.jp/product/interior/" class="img-placeholder" target="_blank"><img src="image6.jpg" alt="画像6"></a>
-            <a href="https://www.nasta.co.jp/product/ventilation/" class="img-placeholder" target="_blank"><img src="image7.jpg" alt="画像7"></a>
-            <a href="https://www.nasta.co.jp/product/maintenance/" class="img-placeholder" target="_blank"><img src="image8.jpg" alt="画像8"></a>
+        <div class="footer-row">
+            <a href="https://www.nasta.co.jp/product/utility/" target="_blank"><img src="images/image4.jpg" alt="画像4"></a>
+            <a href="https://www.nasta.co.jp/product/sign/" target="_blank"><img src="images/image5.jpg" alt="画像5"></a>
+            <a href="https://www.nasta.co.jp/product/interior/" target="_blank"><img src="images/image6.jpg" alt="画像6"></a>
+            <a href="https://www.nasta.co.jp/product/ventilation/" target="_blank"><img src="images/image7.jpg" alt="画像7"></a>
+            <a href="https://www.nasta.co.jp/product/maintenance/" target="_blank"><img src="images/image8.jpg" alt="画像8"></a>
         </div>
     </div>
 
 </div>
+<!-- 電話確認ダイアログ -->
+<div id="callDialog" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); z-index:9999; justify-content:center; align-items:center;">
+    <div style="background:#fff; border-radius:12px; padding:25px 20px; width:85%; max-width:320px; text-align:center; box-shadow:0 10px 30px rgba(0,0,0,0.3);">
+        <div style="font-size:15px; font-weight:bold; margin-bottom:8px;">【在庫確認】</div>
+        <div style="font-size:18px; font-weight:bold; margin-bottom:6px;">札幌支店へ電話しますか？</div>
+        <div style="font-size:20px; font-weight:bold; color:#333; margin-bottom:20px;">Tel:011-741-2250</div>
+        <div style="display:flex; gap:12px; justify-content:center;">
+            <a href="tel:0117412250" style="flex:1; background:linear-gradient(135deg, #e05555, #c03a3a); color:#fff; border:none; border-radius:8px; padding:14px 0; font-size:17px; font-weight:bold; text-decoration:none; display:block; text-align:center; box-shadow:0 3px 8px rgba(180,50,50,0.4);" onclick="closeCallDialog()">発信</a>
+            <button onclick="closeCallDialog()" style="flex:1; background:#fff; color:#333; border:2px solid #999; border-radius:8px; padding:14px 0; font-size:17px; font-weight:bold; cursor:pointer;">戻る</button>
+        </div>
+    </div>
+</div>
+
+<!-- 提案資料依頼ダイアログ -->
+<div id="baDialog" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); z-index:9999; justify-content:center; align-items:center;">
+    <div style="background:#fff; border-radius:12px; padding:25px 20px; width:85%; max-width:320px; text-align:center; box-shadow:0 10px 30px rgba(0,0,0,0.3);">
+        <div style="font-size:15px; font-weight:bold; margin-bottom:12px;">【BA(BeforeAfter)提案資料依頼】</div>
+        <div style="font-size:17px; font-weight:bold; margin-bottom:20px; line-height:1.6;">既存写真の添付を<br>お願いします。</div>
+        <div style="display:flex; gap:12px; justify-content:center;">
+            <button onclick="sendMailAndClose('提案資料依頼', 'baDialog')" style="flex:1; background:linear-gradient(135deg, #4a6a9a, #2d4d7a); color:#fff; border:none; border-radius:8px; padding:14px 0; font-size:17px; font-weight:bold; cursor:pointer; box-shadow:0 3px 8px rgba(45,77,122,0.4);">依頼</button>
+            <button onclick="closeDialog('baDialog')" style="flex:1; background:#fff; color:#333; border:2px solid #999; border-radius:8px; padding:14px 0; font-size:17px; font-weight:bold; cursor:pointer;">戻る</button>
+        </div>
+    </div>
+</div>
+
+<!-- 調査依頼ダイアログ -->
+<div id="surveyDialog" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); z-index:9999; justify-content:center; align-items:center;">
+    <div style="background:#fff; border-radius:12px; padding:25px 20px; width:85%; max-width:320px; text-align:center; box-shadow:0 10px 30px rgba(0,0,0,0.3);">
+        <div style="font-size:15px; font-weight:bold; margin-bottom:12px;">宅配BOX・POST<br>【調査依頼】</div>
+        <div style="font-size:14px; line-height:1.8; margin-bottom:20px; text-align:left;">
+            <p style="margin-bottom:8px;">①調査を承る場合は<br>　宅配BOX・POSTに限ります。</p>
+            <p>②遠方の場合は、ご対応が<br>　難しい場合がございます。</p>
+        </div>
+        <div style="display:flex; gap:12px; justify-content:center;">
+            <button onclick="sendMailAndClose('調査依頼', 'surveyDialog')" style="flex:1; background:linear-gradient(135deg, #4a6a9a, #2d4d7a); color:#fff; border:none; border-radius:8px; padding:14px 0; font-size:17px; font-weight:bold; cursor:pointer; box-shadow:0 3px 8px rgba(45,77,122,0.4);">依頼</button>
+            <button onclick="closeDialog('surveyDialog')" style="flex:1; background:#fff; color:#333; border:2px solid #999; border-radius:8px; padding:14px 0; font-size:17px; font-weight:bold; cursor:pointer;">戻る</button>
+        </div>
+    </div>
+</div>
 
 <script src="mail.js"></script>
-
+<script>
+function showCallDialog() {
+    document.getElementById('callDialog').style.display = 'flex';
+}
+function closeCallDialog() {
+    document.getElementById('callDialog').style.display = 'none';
+}
+function showBADialog() {
+    document.getElementById('baDialog').style.display = 'flex';
+}
+function showSurveyDialog() {
+    document.getElementById('surveyDialog').style.display = 'flex';
+}
+function closeDialog(id) {
+    document.getElementById(id).style.display = 'none';
+}
+function sendMailAndClose(type, dialogId) {
+    closeDialog(dialogId);
+    sendMail(type);
+}
+['callDialog','baDialog','surveyDialog'].forEach(function(id) {
+    document.getElementById(id).addEventListener('click', function(e) {
+        if (e.target === this) closeDialog(id);
+    });
+});
+</script>
 </body>
 </html>
