@@ -22,42 +22,24 @@
 body { font-family: "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif; background-color: #fff; color: #333; line-height: 1.5; }
 .container { max-width: 480px; margin: 0 auto; background-color: #fff; }
 
-/* ナビゲーション */
-.top-nav { background-color: #e8e8e8; padding: 8px 10px; display: flex; flex-wrap: wrap; gap: 5px; }
-.top-nav button { background-color: #fff; border: 1px solid #999; padding: 4px 10px; font-size: 11px; cursor: pointer; border-radius: 3px; }
+/* ===== PRバナー（画像4スロット構成） ===== */
+.banner-area { width: 100%; background-color: #fff; }
+.banner-slot { display: block; width: 100%; overflow: hidden; line-height: 0; }
+.banner-slot img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-/* インターホンセクション */
-.hero-interphone { background-color: #2b2b2b; color: #fff; padding: 15px; display: flex; justify-content: space-between; align-items: center; }
-.hero-interphone-info { display: flex; flex-direction: column; gap: 8px; }
-.catch-copy { font-size: 9px; color: #ccc; line-height: 1.5; text-align: center; }
-.brand-logo-main { font-size: 22px; font-weight: bold; text-align: center; }
-.brand-logo-sub { font-size: 16px; font-weight: bold; text-align: center; }
-.hero-btns { display: flex; gap: 8px; margin-top: 4px; }
-.hero-btn { background: transparent; border: 1px solid #fff; color: #fff; padding: 5px 14px; font-size: 11px; cursor: pointer; border-radius: 3px; }
-.interphone-img { width: 100px; height: 140px; object-fit: cover; flex-shrink: 0; }
+/* ①④ ロング（横幅いっぱい） */
+.banner-long { width: 100%; aspect-ratio: 20 / 9; }
 
-/* Nasta Box + POSTセクション */
-.hero-nastabox { background-color: #c0c0c0; padding: 15px; display: flex; justify-content: space-between; align-items: center; gap: 10px; }
-.hero-nastabox-info { display: flex; flex-direction: column; gap: 8px; flex-shrink: 0; }
-.nastabox-title { font-size: 16px; font-weight: bold; color: #222; }
-.nastabox-catch { font-size: 9px; color: #444; }
-.nastabox-btns { display: flex; gap: 8px; }
-.nastabox-btn { background: transparent; border: 1px solid #333; color: #333; padding: 5px 12px; font-size: 11px; cursor: pointer; border-radius: 3px; }
-.nastabox-img { flex: 1; max-width: 200px; height: 130px; object-fit: contain; }
+/* ②③ ショート（左右2分割） */
+.banner-row { display: flex; width: 100%; }
+.banner-short { flex: 1; aspect-ratio: 1 / 1; }
 
-/* 物干しセクション */
-.hoshiboshi-section { background-color: #1a1a1a; position: relative; width: 100%; }
-.hoshiboshi-img { width: 100%; height: auto; display: block; object-fit: contain; }
-.hoshiboshi-label { position: absolute; top: 10px; left: 10px; display: flex; align-items: center; gap: 6px; z-index: 2; }
-.hoshiboshi-label-text { font-size: 11px; color: #ccc; }
-.hoshiboshi-label-tag { background-color: #444; color: #ccc; border: 1px solid #666; padding: 2px 8px; font-size: 10px; border-radius: 2px; }
-/* ②NEWバッジを左上に */
-.hoshiboshi-badge { position: absolute; top: 8px; right: 10px; background-color: #2a2a2a; border: 1.5px solid #888; border-radius: 50%; width: 48px; height: 48px; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 2; overflow: hidden; }
-.hoshiboshi-badge-new { font-size: 9px; color: #fff; font-style: italic; font-weight: bold; }
-.hoshiboshi-badge-black { font-size: 9px; color: #fff; font-weight: bold; }
-.hoshiboshi-badge-sub { font-size: 7px; color: #aaa; }
-.hoshiboshi-text { position: relative; z-index: 2; text-align: right; }
-.hoshiboshi-text p { font-size: 10px; color: #ddd; line-height: 1.6; }
+/* 画像未設定スロットは非表示 */
+.banner-slot.empty { display: none; }
+.banner-row.empty { display: none; }
+
+/* ロード前のプレースホルダ */
+.banner-slot.loading { background: #e8e8e8; }
 
 /* 依頼ボタンセクション */
 .request-section { background-color: #111; padding: 12px; }
@@ -117,65 +99,29 @@ body { font-family: "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif; backgroun
 /* PC */
 @media (min-width: 481px) {
     .container { max-width: 1000px; }
-    .hero-wrap { display: flex; }
-    .hero-interphone { flex: 1; }
-    .hero-nastabox { flex: 1; }
     .catalog-grid { grid-template-columns: repeat(4, 1fr); }
     .request-grid { grid-template-columns: repeat(3, 1fr); }
     .contact-section { gap: 20px; }
     .contact-info { white-space: normal; }
+    /* PCではロングバナーをやや低く */
+    .banner-long { aspect-ratio: 24 / 7; }
 }
 </style>
 </head>
 <body>
 <div class="container">
 
-    <!-- ナビゲーション -->
-    <div class="top-nav">
-        <button>宅配ボックス</button>
-        <button>集合ポスト</button>
-        <button>戸建ポスト</button>
-        <button>物干し</button>
-        <button>換気口</button>
-        <button>その他</button>
-    </div>
-
-    <div class="hero-wrap">
-        <!-- インターホン -->
-        <div class="hero-interphone">
-            <div class="hero-interphone-info">
-                <div class="catch-copy">「すべての人に あたらしい きもちよさ」<br>インターホンから</div>
-                <div class="brand-logo-main">Nasta</div>
-                <div class="brand-logo-sub">Interphone 2</div>
-                <div class="hero-btns">
-                    <button class="hero-btn" onclick="sendMail('見積依頼')">見積依頼</button>
-                    <button class="hero-btn">カタログ</button>
-                </div>
-            </div>
-            <a href="https://www.nasta.co.jp/product/electrical/interphone-home2/" target="_blank">
-                <img src="images/imageA.jpg" alt="インターホン" class="interphone-img">
-            </a>
+    <!-- ===== PRバナー（スプレッドシート連動・画像4スロット） ===== -->
+    <div class="banner-area" id="bannerArea">
+        <!-- ① ロング -->
+        <a class="banner-slot banner-long loading" id="slot1" target="_blank" rel="noopener"></a>
+        <!-- ②③ ショート左右 -->
+        <div class="banner-row" id="row23">
+            <a class="banner-slot banner-short loading" id="slot2" target="_blank" rel="noopener"></a>
+            <a class="banner-slot banner-short loading" id="slot3" target="_blank" rel="noopener"></a>
         </div>
-
-        <!-- Nasta Box + POST -->
-        <div class="hero-nastabox">
-            <a href="https://www.nasta.co.jp/product/delivery-box/detached-house-brand/index.html" target="_blank">
-                <img src="images/imageB.png" alt="Nasta Box" class="nastabox-img">
-            </a>
-            <div class="hero-nastabox-info">
-                <div class="nastabox-title">Nasta Box + POST</div>
-                <div class="nastabox-catch">「再配達ゼロ」をめざして。</div>
-                <div class="nastabox-btns">
-                    <button class="nastabox-btn" onclick="sendMail('見積依頼')">見積依頼</button>
-                    <button class="nastabox-btn">カタログ</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- 物干しセクション -->
-    <div class="hoshiboshi-section">
-        <img src="images/imageKSDA.jpg" alt="物干し" class="hoshiboshi-img">
+        <!-- ④ ロング -->
+        <a class="banner-slot banner-long loading" id="slot4" target="_blank" rel="noopener"></a>
     </div>
 
     <!-- 依頼ボタン -->
@@ -230,9 +176,9 @@ body { font-family: "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif; backgroun
     <!-- 担当者情報 ⑥改行しない ⑦メールアドレス追加 -->
     <div class="contact-section">
         <div class="contact-info">
-            <div class="contact-info-name">■営業担当：佐野 一貴</div>
-            <div>TEL：011-741-2250</div>
-            <div>✉：k&#45;sano&#64;nasta&#46;co&#46;jp</div>
+            <div class="contact-info-name" id="staffName">■営業担当：佐野 一貴</div>
+            <div id="staffTel">TEL：011-741-2250</div>
+            <div id="staffMail">✉：k&#45;sano&#64;nasta&#46;co&#46;jp</div>
         </div>
         <div class="catalog-img-wrap">
             <a href="https://www.catalabo.org/iportal/CatalogViewInterfaceStartUpAction.do?method=startUp&mode=PAGE&volumeID=CATALABO&catalogId=82024360000&pageGroupId=&designID=link&catalogCategoryId=&designConfirmFlg=" target="_blank">
@@ -318,6 +264,153 @@ body { font-family: "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif; backgroun
     </div>
 </div>
 
+<script>
+/* ============================================================
+   PRバナー スプレッドシート連動スクリプト
+   - URLの ?c=企業ID で該当企業のバナー構成を表示
+   - 例: ?c=301  /  担当者切替も併用するなら ?s=sano&c=301
+   ============================================================ */
+
+/* ▼▼▼ 設定：ここだけ最初に1回書き換える ▼▼▼ */
+// Googleスプレッドシートを「ウェブに公開(CSV)」したURL
+const SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQaHerhMaT2JSH95gurH3PavrXUrjUHKFnPZBjIR5Zwyjqaa_VgK2PoVAzLr1y38qS895ZLmNpR6EUd/pub?gid=0&single=true&output=csv";
+// 画像を置くフォルダ（GitHubリポジトリ内）
+const IMAGE_BASE = "banners/";
+/* ▲▲▲ 設定ここまで ▲▲▲ */
+
+// CSVの列名（スプレッドシート1行目のヘッダーと一致させる）
+const COL = {
+  id: "ID",
+  company: "企業名",
+  staff: "担当者",
+  tel: "TEL",
+  mail: "メール",
+  img1: "①画像", link1: "①リンク",
+  img2: "②画像", link2: "②リンク",
+  img3: "③画像", link3: "③リンク",
+  img4: "④画像", link4: "④リンク",
+};
+
+// 簡易CSVパーサ（カンマ・改行・ダブルクォート対応）
+function parseCSV(text) {
+  const rows = [];
+  let row = [], field = "", inQuotes = false;
+  for (let i = 0; i < text.length; i++) {
+    const c = text[i];
+    if (inQuotes) {
+      if (c === '"') {
+        if (text[i + 1] === '"') { field += '"'; i++; }
+        else inQuotes = false;
+      } else field += c;
+    } else {
+      if (c === '"') inQuotes = true;
+      else if (c === ",") { row.push(field); field = ""; }
+      else if (c === "\n") { row.push(field); rows.push(row); row = []; field = ""; }
+      else if (c === "\r") { /* skip */ }
+      else field += c;
+    }
+  }
+  if (field !== "" || row.length) { row.push(field); rows.push(row); }
+  return rows;
+}
+
+// CSV → オブジェクト配列
+function csvToObjects(rows) {
+  if (!rows.length) return [];
+  const header = rows[0].map(h => h.trim());
+  return rows.slice(1).map(r => {
+    const o = {};
+    header.forEach((h, i) => o[h] = (r[i] || "").trim());
+    return o;
+  });
+}
+
+// 画像URLを解決（http始まりは外部、それ以外はbannersフォルダ）
+function resolveImg(val) {
+  if (!val) return "";
+  if (/^https?:\/\//i.test(val)) return val;
+  return IMAGE_BASE + val;
+}
+
+// 1スロットに画像とリンクをセット
+function setSlot(slotId, imgVal, linkVal, altText) {
+  const el = document.getElementById(slotId);
+  if (!el) return;
+  el.classList.remove("loading");
+  const img = resolveImg(imgVal);
+  if (!img) { el.classList.add("empty"); return; }
+  el.classList.remove("empty");
+  el.innerHTML = '<img src="' + img + '" alt="' + (altText || "") + '">';
+  if (linkVal) { el.href = linkVal; }
+  else { el.removeAttribute("href"); el.style.cursor = "default"; }
+}
+
+// 担当者情報を更新
+function setStaff(rec) {
+  if (rec[COL.staff]) {
+    document.getElementById("staffName").textContent = "■営業担当：" + rec[COL.staff];
+  }
+  if (rec[COL.tel]) {
+    document.getElementById("staffTel").textContent = "TEL：" + rec[COL.tel];
+    if (window.__setStaffTel) window.__setStaffTel(rec[COL.tel]);
+  }
+  if (rec[COL.mail]) {
+    document.getElementById("staffMail").textContent = "✉：" + rec[COL.mail];
+    if (window.__setStaffMail) window.__setStaffMail(rec[COL.mail]);
+  }
+}
+
+// メイン処理
+async function loadBanners() {
+  const params = new URLSearchParams(location.search);
+  const cid = params.get("c");
+
+  // 設定未完了 or IDなしの場合は何もしない（既定の見た目を保持）
+  if (SHEET_CSV_URL.indexOf("★") !== -1) {
+    console.warn("SHEET_CSV_URL が未設定です。");
+    clearLoading();
+    return;
+  }
+
+  try {
+    const res = await fetch(SHEET_CSV_URL);
+    const text = await res.text();
+    const records = csvToObjects(parseCSV(text));
+
+    // 企業IDで該当行を検索（なければ先頭行）
+    let rec = null;
+    if (cid) rec = records.find(r => r[COL.id] === cid);
+    if (!rec) rec = records[0];
+    if (!rec) { clearLoading(); return; }
+
+    // バナー4スロット反映
+    setSlot("slot1", rec[COL.img1], rec[COL.link1], rec[COL.company] + " バナー1");
+    setSlot("slot2", rec[COL.img2], rec[COL.link2], rec[COL.company] + " バナー2");
+    setSlot("slot3", rec[COL.img3], rec[COL.link3], rec[COL.company] + " バナー3");
+    setSlot("slot4", rec[COL.img4], rec[COL.link4], rec[COL.company] + " バナー4");
+
+    // ②③が両方空なら行ごと隠す
+    const s2 = resolveImg(rec[COL.img2]), s3 = resolveImg(rec[COL.img3]);
+    if (!s2 && !s3) document.getElementById("row23").classList.add("empty");
+
+    // 担当者情報反映
+    setStaff(rec);
+
+  } catch (e) {
+    console.error("バナー読み込み失敗:", e);
+    clearLoading();
+  }
+}
+
+function clearLoading() {
+  ["slot1","slot2","slot3","slot4"].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.classList.remove("loading");
+  });
+}
+
+document.addEventListener("DOMContentLoaded", loadBanners);
+</script>
 <script src="mail.js"></script>
 <script>
 function showCallDialog() {
