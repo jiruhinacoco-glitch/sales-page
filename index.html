@@ -432,20 +432,30 @@ document.addEventListener("DOMContentLoaded", loadBanners);
 
 /* ===== ふわっと表示（スクロール連動） ===== */
 function initReveal() {
-  // アニメーションを付ける対象：バナー4スロット＋依頼ボタン＋カタログ画像
-  const targets = [
-    "#slot1", "#row23", "#slot4",
-    ".request-grid",
-    ".catalog-grid a"
-  ];
-  const els = [];
-  targets.forEach(sel => document.querySelectorAll(sel).forEach(el => els.push(el)));
+  // --- バナー4スロット：ページを開いた瞬間に時間差でふわっと表示 ---
+  const bannerEls = [];
+  ["#slot1", "#row23", "#slot4"].forEach(sel => {
+    document.querySelectorAll(sel).forEach(el => bannerEls.push(el));
+  });
+  bannerEls.forEach(el => {
+    if (!el.classList.contains("reveal")) el.classList.add("reveal");
+  });
+  // 順番に時間差(200msずつ)で表示
+  bannerEls.forEach((el, i) => {
+    setTimeout(() => el.classList.add("visible"), 150 + i * 200);
+  });
 
-  els.forEach(el => el.classList.add("reveal"));
+  // --- 依頼ボタン・カタログ画像：スクロールで入ってきたら表示 ---
+  const scrollEls = [];
+  [".request-grid", ".catalog-grid a"].forEach(sel => {
+    document.querySelectorAll(sel).forEach(el => scrollEls.push(el));
+  });
+  scrollEls.forEach(el => {
+    if (!el.classList.contains("reveal")) el.classList.add("reveal");
+  });
 
   if (!("IntersectionObserver" in window)) {
-    // 古いブラウザ用フォールバック：即表示
-    els.forEach(el => el.classList.add("visible"));
+    scrollEls.forEach(el => el.classList.add("visible"));
     return;
   }
 
@@ -458,7 +468,7 @@ function initReveal() {
     });
   }, { threshold: 0.12 });
 
-  els.forEach(el => observer.observe(el));
+  scrollEls.forEach(el => observer.observe(el));
 }
 
 // バナーは非同期で後から入るので、少し遅延させてから初期化
