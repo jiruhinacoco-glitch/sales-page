@@ -41,6 +41,22 @@ body { font-family: "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif; backgroun
 /* ロード前のプレースホルダ */
 .banner-slot.loading { background: #e8e8e8; }
 
+/* ===== ふわっと表示アニメーション ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+  will-change: opacity, transform;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* アニメーションを望まない人には無効化（アクセシビリティ配慮） */
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+}
+
 /* 依頼ボタンセクション */
 .request-section { background-color: #111; padding: 12px; }
 .request-title-wrapper { margin-bottom: 10px; }
@@ -396,6 +412,9 @@ async function loadBanners() {
     // 担当者情報反映
     setStaff(rec);
 
+    // バナーが入った後にアニメーション初期化
+    if (typeof initReveal === "function") setTimeout(initReveal, 100);
+
   } catch (e) {
     console.error("バナー読み込み失敗:", e);
     clearLoading();
@@ -410,6 +429,42 @@ function clearLoading() {
 }
 
 document.addEventListener("DOMContentLoaded", loadBanners);
+
+/* ===== ふわっと表示（スクロール連動） ===== */
+function initReveal() {
+  // アニメーションを付ける対象：バナー4スロット＋依頼ボタン＋カタログ画像
+  const targets = [
+    "#slot1", "#row23", "#slot4",
+    ".request-grid",
+    ".catalog-grid a"
+  ];
+  const els = [];
+  targets.forEach(sel => document.querySelectorAll(sel).forEach(el => els.push(el)));
+
+  els.forEach(el => el.classList.add("reveal"));
+
+  if (!("IntersectionObserver" in window)) {
+    // 古いブラウザ用フォールバック：即表示
+    els.forEach(el => el.classList.add("visible"));
+    return;
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  els.forEach(el => observer.observe(el));
+}
+
+// バナーは非同期で後から入るので、少し遅延させてから初期化
+window.addEventListener("load", () => {
+  setTimeout(initReveal, 300);
+});
 </script>
 <script src="mail.js"></script>
 <script>
