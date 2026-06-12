@@ -281,10 +281,10 @@ const IMAGE_BASE = "banners/";
 // CSVの列名（スプレッドシート1行目のヘッダーと一致させる）
 const COL = {
   id: "ID",
-  company: "企業名",
+  company: "直口座企業名",
   staff: "担当者",
-  tel: "TEL",
-  mail: "メール",
+  tel: "会社TEL",
+  mail: "アドレス",
   img1: "①画像", link1: "①リンク",
   img2: "②画像", link2: "②リンク",
   img3: "③画像", link3: "③リンク",
@@ -373,7 +373,7 @@ async function loadBanners() {
   }
 
   try {
-    const res = await fetch(SHEET_CSV_URL);
+    const res = await fetch(SHEET_CSV_URL + "&_=" + Date.now());
     const text = await res.text();
     const records = csvToObjects(parseCSV(text));
 
